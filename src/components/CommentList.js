@@ -77,7 +77,7 @@ export default class CommentList extends React.PureComponent<Props> {
         reverseOrder={reverseOrder}
         LoadMoreButton={LoadMoreButton}
       >
-        <SectionHeader>Comments</SectionHeader>
+        {/* <SectionHeader>Comments</SectionHeader> */}
       </ReactionList>
     );
   }

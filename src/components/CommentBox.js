@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, StyleSheet } from 'react-native';
 import KeyboardAccessory from 'react-native-sticky-keyboard-accessory';
 
 import Avatar from './Avatar';
@@ -74,7 +74,7 @@ export default class CommentBox extends React.Component<Props, State> {
 
     const styles = buildStylesheet('commentBox', this.props.styles);
     const input = (
-      <View style={styles.container}>
+      <View style={commentBoxStyles.container}>
         {this.props.noAvatar || (
           <Avatar
             size={48}
@@ -91,7 +91,7 @@ export default class CommentBox extends React.Component<Props, State> {
             this.setState({ text: '' });
             this.postComment(event);
           }}
-          placeholder="Your comment..."
+          placeholder="Add a comment"
           returnKeyType="send"
           {...textInputProps}
         />
@@ -103,11 +103,13 @@ export default class CommentBox extends React.Component<Props, State> {
 
     return (
       <React.Fragment>
-        <View style={{ height: this.props.height }} />
-        <KeyboardAccessory verticalOffset={this.props.verticalOffset}>
-          {input}
-        </KeyboardAccessory>
+        <View style={{ height: 20 }} />
+        {input}
       </React.Fragment>
     );
   }
 }
+
+const commentBoxStyles = StyleSheet.create({
+  container: {},
+});

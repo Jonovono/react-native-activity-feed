@@ -73,9 +73,9 @@ class ReactionListInner extends React.Component<PropsInner> {
       getActivityPath,
       oldestToNewest,
     } = this.props;
-    if (!oldestToNewest) {
-      return;
-    }
+    // if (!oldestToNewest) {
+    //   return;
+    // }
 
     const activityPath = this.props.activityPath || getActivityPath(activityId);
     const orderPrefix = 'oldest';
@@ -100,6 +100,9 @@ class ReactionListInner extends React.Component<PropsInner> {
 
   componentDidUpdate() {
     this.initReactions();
+    // setTimeout(() => {
+    //   this.forceUpdate();
+    // }, 4000);
   }
 
   render() {
@@ -116,6 +119,8 @@ class ReactionListInner extends React.Component<PropsInner> {
     if (oldestToNewest) {
       orderPrefix = 'oldest';
     }
+
+    // console.log('ACTIVITIES', activities);
 
     const reactionsOfKind = activities.getIn(
       [...activityPath, orderPrefix + '_reactions', reactionKind],
@@ -144,6 +149,8 @@ class ReactionListInner extends React.Component<PropsInner> {
     const LoadMoreButton = this.props.LoadMoreButton;
 
     const styles = buildStylesheet('reactionList', this.props.styles);
+
+    // console.log('REACTIONS', reactionsOfKind);
 
     if (!reactionsOfKind.size) {
       return null;
@@ -219,9 +226,7 @@ type ImmutableItemWrapperProps = {
   item: any,
 };
 
-class ImmutableItemWrapper extends React.PureComponent<
-  ImmutableItemWrapperProps,
-> {
+class ImmutableItemWrapper extends React.PureComponent<ImmutableItemWrapperProps> {
   render() {
     return this.props.renderItem(this.props.item.toJS());
   }

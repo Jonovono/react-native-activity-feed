@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { humanizeTimestamp, smartRender } from '../utils';
 import Avatar from './Avatar';
 import { buildStylesheet } from '../styles';
@@ -38,12 +38,17 @@ export default class CommentItem extends React.Component<Props> {
   render() {
     const { comment } = this.props;
     const styles = buildStylesheet('commentItem', this.props.styles || {});
+    const emoji = comment.data.emoji;
     return (
       <View style={styles.container}>
-        <Avatar source={comment.user.data.profileImage} size={25} noShadow />
+        {emoji ? (
+          <Text style={addedStyles.emojiStyle}>{emoji}</Text>
+        ) : (
+          <View style={addedStyles.pinkCircleStyle} />
+        )}
         <View style={styles.commentText}>
           <Text>
-            <Text style={styles.commentAuthor}>{comment.user.data.name} </Text>
+            <Text style={styles.commentAuthor}>{comment.data.name} </Text>
             <Text style={styles.commentContent}>{comment.data.text} </Text>
             <Text style={styles.commentTime}>
               {humanizeTimestamp(comment.created_at)}
@@ -55,3 +60,17 @@ export default class CommentItem extends React.Component<Props> {
     );
   }
 }
+
+const addedStyles = StyleSheet.create({
+  emojiStyle: {
+    fontSize: 15,
+    marginRight: 5,
+  },
+  pinkCircleStyle: {
+    width: 15,
+    height: 15,
+    borderRadius: 7.5,
+    backgroundColor: '#FC32E4',
+    marginRight: 5,
+  },
+});

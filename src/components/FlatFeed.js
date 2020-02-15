@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import { FlatList } from 'react-native';
+import { KeyboardAwareFlatList } from 'react-native-keyboard-aware-scroll-view';
 
 import Activity from './Activity';
 import NewActivitiesNotification from './NewActivitiesNotification';
@@ -122,7 +123,7 @@ class FlatFeedInner extends React.Component<PropsInner> {
     // $FlowFixMe
     const ref = this.listRef;
     if (ref) {
-      ref.scrollToOffset({ offset: 0 });
+      // ref.scrollToOffset({ offset: 0 });
     }
   }
   async componentDidMount() {
@@ -173,7 +174,7 @@ class FlatFeedInner extends React.Component<PropsInner> {
     return (
       <React.Fragment>
         {smartRender(this.props.Notifier, notifierProps)}
-        <FlatList
+        <KeyboardAwareFlatList
           ListHeaderComponent={this.props.children}
           style={styles.container}
           refreshing={this.props.refreshing}
@@ -206,9 +207,7 @@ type ImmutableItemWrapperProps = {
   item: any,
 };
 
-class ImmutableItemWrapper extends React.PureComponent<
-  ImmutableItemWrapperProps,
-> {
+class ImmutableItemWrapper extends React.PureComponent<ImmutableItemWrapperProps> {
   render() {
     return this.props.renderItem(this.props.item.toJS());
   }

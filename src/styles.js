@@ -220,7 +220,9 @@ export const styles = {
       backgroundColor: 'white',
       flexDirection: 'row',
       alignItems: 'center',
-      padding: 15,
+      alignContent: 'center',
+      marginRight: 20,
+      justifyContent: 'center',
     },
     textInput: {
       flex: 1,
@@ -392,13 +394,10 @@ export const styles = {
     container: {
       flexDirection: 'row',
       flex: 1,
-      alignItems: 'flex-start',
-      paddingTop: 12,
-      paddingBottom: 12,
-      paddingRight: 15,
-      paddingLeft: 15,
-      borderBottomColor: '#DADFE3',
-      borderBottomWidth: 1,
+      alignItems: 'center',
+      paddingTop: 5,
+      paddingBottom: 5,
+      paddingRight: 25,
     },
     commentText: {
       flex: 1,
@@ -408,13 +407,16 @@ export const styles = {
       flexWrap: 'wrap',
     },
     commentAuthor: {
+      fontFamily: 'Avenir Next',
       fontWeight: '700',
       fontSize: 14,
     },
     commentContent: {
+      fontFamily: 'Avenir Next',
       fontSize: 14,
     },
     commentTime: {
+      fontFamily: 'Avenir Next',
       fontSize: 14,
       color: '#95A4AD',
     },
@@ -436,7 +438,10 @@ export const styles = {
     },
   }),
   reactionList: StyleSheet.create({
-    container: {},
+    container: {
+      marginLeft: 15,
+      marginTop: 10,
+    },
   }),
 };
 
