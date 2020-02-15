@@ -254,8 +254,6 @@ export const styles = {
     container: {
       paddingTop: 15,
       paddingBottom: 15,
-      borderBottomColor: 'rgba(0,0,0,0.1)',
-      borderBottomWidth: 1,
     },
     header: {
       padding: 15,
