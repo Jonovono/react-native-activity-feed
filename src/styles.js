@@ -223,12 +223,15 @@ export const styles = {
       alignContent: 'center',
       marginRight: 20,
       justifyContent: 'center',
+      marginBottom: 0,
     },
     textInput: {
       flex: 1,
-      marginLeft: 25,
-      fontSize: 16,
+      marginLeft: 21,
+      fontSize: 14,
       color: '#364047',
+      fontFamily: 'Avenir Next',
+      fontWeight: '400',
     },
   }),
   followButton: StyleSheet.create({
@@ -439,8 +442,8 @@ export const styles = {
   }),
   reactionList: StyleSheet.create({
     container: {
-      marginLeft: 15,
-      marginTop: 10,
+      marginLeft: 17,
+      marginTop: 0,
     },
   }),
 };

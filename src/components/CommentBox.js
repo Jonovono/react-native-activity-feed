@@ -92,6 +92,7 @@ export default class CommentBox extends React.Component<Props, State> {
             this.postComment(event);
           }}
           placeholder="Add a comment"
+          placeholderTextColor={'#666666'}
           returnKeyType="send"
           {...textInputProps}
         />
@@ -103,7 +104,7 @@ export default class CommentBox extends React.Component<Props, State> {
 
     return (
       <React.Fragment>
-        <View style={{ height: 20 }} />
+        <View style={{ height: 10 }} />
         {input}
       </React.Fragment>
     );

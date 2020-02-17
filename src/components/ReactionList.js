@@ -169,6 +169,8 @@ class ReactionListInner extends React.Component<PropsInner> {
                 oldestToNewest,
               ),
           });
+
+    console.log('load more', loadMoreButton);
     // <LoadMoreButton
     //   refreshing={refreshing}
     //   styles={styles}
